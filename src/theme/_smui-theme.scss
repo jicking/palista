@@ -1,0 +1,56 @@
+@use 'sass:color';
+
+@use '@material/theme/color-palette';
+
+// Svelte Colors!
+@use '@material/theme/index' as theme with (
+	$primary: #ff3e00,
+	$secondary: #676778,
+	$surface: #fff,
+	$background: #fff,
+	$error: color-palette.$red-900
+);
+
+// Import all the styles for the classes.
+@use '@material/typography/mdc-typography';
+// The following classes become available:
+//   mdc-typography--headline1
+//   mdc-typography--headline2
+//   mdc-typography--headline3
+//   mdc-typography--headline4
+//   mdc-typography--headline5
+//   mdc-typography--headline6
+//   mdc-typography--subtitle1
+//   mdc-typography--subtitle2
+//   mdc-typography--body1
+//   mdc-typography--body2
+//   mdc-typography--caption
+//   mdc-typography--button
+//   mdc-typography--overline
+//   mdc-typography--body1
+
+// Import the mixins.
+@use '@material/typography/mixins' as typography;
+
+html,
+body {
+	@include typography.typography('body1');
+
+	background-color: theme.$surface;
+	color: theme.$on-surface;
+}
+
+a {
+	color: #40b3ff;
+}
+a:visited {
+	color: color.scale(#40b3ff, $lightness: -35%);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	margin: 8px 0;
+}
